@@ -14,21 +14,25 @@
             </aside>
 
             <main class="text-sm col-span-9">
-                <p class="mb-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ab, deleniti, sapiente id quisquam molestias dolore perspiciatis iste quaerat voluptates consequatur commodi, fuga sit molestiae repellat pariatur aliquid nihil cumque?
+                <p>
+                    Would you like to delete your account?
                 </p>
 
-                <p class="mb-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ab, deleniti, sapiente id quisquam molestias dolore perspiciatis iste quaerat voluptates consequatur commodi, fuga sit molestiae repellat pariatur aliquid nihil cumque?
-                </p>
+                <form
+                    id="delete-user-form"
+                    method="POST"
+                    action="/"
+                    x-data
+                    @submit.prevent="
+                        location.hash = '#user-delete-modal';
+                    "
+                >
+                    @csrf
 
-                <p class="mb-4">
-                    <a class="underline text-blue-500" href="#user-delete-modal">Delete User?</a>
-                </p>
-
-                <p class="mb-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ab, deleniti, sapiente id quisquam molestias dolore perspiciatis iste quaerat voluptates consequatur commodi, fuga sit molestiae repellat pariatur aliquid nihil cumque?
-                </p>
+                    <p>
+                        <x-button class="bg-blue-400 hover:bg-blue-500">Yes, Delete</x-button>
+                    </p>
+                </form>
             </main>
         </div>
 
@@ -50,7 +54,7 @@
 
         <x-slot name="footer">
             <a href="#" class="bg-gray-400 hover:bg-gray text-xs uppercase py-2 px-4 rounded-md text-white transition-all duration-200 mr-2'">Cancel</a>
-            <x-button class="bg-blue-400 hover:bg-blue-500">Continue</x-button>
+            <x-button class="bg-blue-400 hover:bg-blue-500" @click="document.querySelector('#delete-user-form').submit()">Continue</x-button>
         </x-slot>
     </x-confirmation-modal>
 </x-layout>
