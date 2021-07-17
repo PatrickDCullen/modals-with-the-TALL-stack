@@ -1,8 +1,15 @@
-<div {{ $attributes }}
-    x-data="{ show: @entangle($attributes->wire('model')) }"
+@props(['name'])
+
+<div id="{{ $name }}"
+    x-data="{ show: false, name: '{{ $name }}' }"
     x-show="show"
+    x-on:modal.window="
+        show = ($event.detail === name);
+    "
     @keydown.escape.window="show = false"
     style="display: none"
+    class="fixed inset-0 grid place-items-center"
+    {{ $attributes }}
 >
     <div class="fixed inset-0 bg-gray-900 opacity-90" @click="show = false"></div>
 
