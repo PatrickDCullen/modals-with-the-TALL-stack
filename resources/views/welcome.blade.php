@@ -1,7 +1,3 @@
 <x-layout>
-    <p>
-        Would you like to delete your account?
-    </p>
-
-    @livewire('delete-user')
+    <livewire:manage-users />
 </x-layout>
