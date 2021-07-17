@@ -23,6 +23,10 @@
                 </p>
 
                 <p class="mb-4">
+                    <a class="underline text-blue-500" href="#user-delete-modal">Delete User?</a>
+                </p>
+
+                <p class="mb-4">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ab, deleniti, sapiente id quisquam molestias dolore perspiciatis iste quaerat voluptates consequatur commodi, fuga sit molestiae repellat pariatur aliquid nihil cumque?
                 </p>
             </main>
@@ -35,7 +39,7 @@
     </div>
 
     {{-- Modal --}}
-    <x-confirmation-modal>
+    <x-confirmation-modal name="user-delete-modal">
         <x-slot name="title">
             Are You Sure?
         </x-slot>
@@ -45,7 +49,7 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-button class="bg-gray-400 hover:bg-gray-500">Cancel</x-button>
+            <a href="#" class="bg-gray-400 hover:bg-gray text-xs uppercase py-2 px-4 rounded-md text-white transition-all duration-200 mr-2'">Cancel</a>
             <x-button class="bg-blue-400 hover:bg-blue-500">Continue</x-button>
         </x-slot>
     </x-confirmation-modal>
